@@ -8,7 +8,7 @@ data "archive_file" "lambda_edge_function_for_cloudfront" {
 }
 
 resource "aws_lambda_function" "lambda_edge_function_for_cloudfront" {
-  provider         = "aws.api-northeast-1"
+  provider         = "aws.ap-northeast-1"
   function_name    = "CloudFrontRedirectRootObject"
   filename         = "${data.archive_file.lambda_edge_function_for_cloudfront.output_path}"
   source_code_hash = "${data.archive_file.lambda_edge_function_for_cloudfront.output_base64sha256}"
