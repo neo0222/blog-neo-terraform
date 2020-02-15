@@ -2,7 +2,7 @@
 # S3 Bucket Settings
 #####################################
 resource "aws_s3_bucket" "this" {
-  bucket        = "blog-neo"
+  bucket        = "blog-neo.com"
   acl           = "private"
   force_destroy = true
 
