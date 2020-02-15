@@ -1,12 +1,12 @@
 #####################################
 # Route53 Settings
 #####################################
-resource "aws_route53_zone" "this" {
-  name = "blog-neo.com"
-}
+# resource "aws_route53_zone" "this" {
+#   name = "blog-neo.com"
+# }
 
 resource "aws_route53_record" "this" {
-  zone_id = "${aws_route53_zone.this.zone_id}"
+  zone_id = "Z3PU4A00PSX9MK"
   name    = "blog-neo.com"
   type    = "A"
 
@@ -19,7 +19,7 @@ resource "aws_route53_record" "this" {
 
 resource "aws_route53_record" "acm" {
   count   = "${length(aws_acm_certificate.cloudfront.domain_validation_options)}"
-  zone_id = "${aws_route53_zone.this.zone_id}"
+  zone_id = "Z3PU4A00PSX9MK"
   name    = "${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_name")}"
   type    = "${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_type")}"
   ttl     = "300"
