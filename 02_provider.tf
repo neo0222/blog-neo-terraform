@@ -5,10 +5,10 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias      = "ap-northeast-1"
+  alias      = "us-east-1"
   access_key = "${var.aws_access_key}"
   secret_key = "${var.aws_secret_key}"
-  region     = "ap-northeast-1"
+  region     = "us-east-1"
 }
 
 # windowsの場合、zip化する時にlambda_functionの中身を圧縮せずにフォルダごと圧縮してしまうため、versionを1.0.0に指定。
