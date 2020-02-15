@@ -17,11 +17,11 @@ resource "aws_route53_record" "this" {
   }
 }
 
-resource "aws_route53_record" "acm" {
-  count   = "${length(aws_acm_certificate.cloudfront.domain_validation_options)}"
-  zone_id = "Z3PU4A00PSX9MK"
-  name    = "${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_name")}"
-  type    = "${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_type")}"
-  ttl     = "300"
-  records = ["${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_value")}"]
-}
+# resource "aws_route53_record" "acm" {
+#   count   = "${length(aws_acm_certificate.cloudfront.domain_validation_options)}"
+#   zone_id = "Z3PU4A00PSX9MK"
+#   name    = "${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_name")}"
+#   type    = "${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_type")}"
+#   ttl     = "300"
+#   records = ["${lookup(aws_acm_certificate.cloudfront.domain_validation_options[count.index],"resource_record_value")}"]
+# }

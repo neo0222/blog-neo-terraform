@@ -54,7 +54,7 @@ resource "aws_codepipeline" "application" {
       version          = "1"
       output_artifacts = ["app-source"]
 
-      configuration {
+      configuration = {
         Owner                = "neo0222"
         Repo                 = "blog-neo"
         Branch               = "master"
@@ -74,7 +74,7 @@ resource "aws_codepipeline" "application" {
       version         = "1"
       input_artifacts = ["app-source"]
 
-      configuration {
+      configuration = {
         ProjectName = "blog-neo-app"
       }
     }
