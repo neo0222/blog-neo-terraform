@@ -2,12 +2,12 @@
 # Route53 Settings
 #####################################
 resource "aws_route53_zone" "this" {
-  name = "mycode.rip"
+  name = "blog-neo.com"
 }
 
 resource "aws_route53_record" "this" {
   zone_id = "${aws_route53_zone.this.zone_id}"
-  name    = "mycode.rip"
+  name    = "blog-neo.com"
   type    = "A"
 
   alias {
