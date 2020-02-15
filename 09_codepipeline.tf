@@ -57,6 +57,7 @@ resource "aws_codepipeline" "application" {
       configuration = {
         Owner                = "neo0222"
         Repo                 = "blog-neo"
+        OAuthToken           = "${var.github_oauth_token}"
         Branch               = "master"
         PollForSourceChanges = "true"
       }
