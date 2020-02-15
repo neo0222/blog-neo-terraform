@@ -2,7 +2,7 @@
 # S3 for CodePipeline Settings
 #####################################
 resource "aws_s3_bucket" "codepipeline" {
-  bucket        = "blog-neo"
+  bucket        = "blog-neo-codepipeline"
   acl           = "private"
   force_destroy = true
 }
