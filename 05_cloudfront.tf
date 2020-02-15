@@ -2,13 +2,13 @@
 # CloudFront Settings
 #####################################
 resource "aws_cloudfront_origin_access_identity" "this" {
-  comment = "mycode.rip"
+  comment = "blog-neo.com"
 }
 
 resource "aws_cloudfront_distribution" "this" {
   origin {
     domain_name = "${aws_s3_bucket.this.bucket_domain_name}"
-    origin_id   = "mycode.rip"
+    origin_id   = "blog-neo.com"
 
     s3_origin_config {
       origin_access_identity = "${aws_cloudfront_origin_access_identity.this.cloudfront_access_identity_path}"
@@ -18,7 +18,7 @@ resource "aws_cloudfront_distribution" "this" {
   enabled             = true
   price_class         = "PriceClass_All"
   default_root_object = "index.html"
-  aliases             = ["mycode.rip"]
+  aliases             = ["blog-neo.com"]
 
   restrictions {
     geo_restriction {
@@ -42,7 +42,7 @@ resource "aws_cloudfront_distribution" "this" {
   default_cache_behavior {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = "mycode.rip"
+    target_origin_id       = "blog-neo.com"
     viewer_protocol_policy = "redirect-to-https"
 
     forwarded_values {
@@ -68,7 +68,7 @@ resource "aws_cloudfront_distribution" "this" {
     path_pattern           = "*.js"
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = "mycode.rip"
+    target_origin_id       = "blog-neo.com"
     viewer_protocol_policy = "redirect-to-https"
 
     forwarded_values {

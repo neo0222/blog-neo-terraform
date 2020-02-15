@@ -2,7 +2,7 @@
 # S3 for CodePipeline Settings
 #####################################
 resource "aws_s3_bucket" "codepipeline" {
-  bucket        = "mycode.rip-codepipeline"
+  bucket        = "blog-neo"
   acl           = "private"
   force_destroy = true
 }
@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "codepipeline" {
 # CodeBuild Settings
 #####################################
 resource "aws_codebuild_project" "application" {
-  name          = "mycode-rip-app"
+  name          = "blog-neo-app"
   build_timeout = "10"
   service_role  = "${aws_iam_role.codebuild.arn}"
 
@@ -35,7 +35,7 @@ resource "aws_codebuild_project" "application" {
 # CodePipeline Settings
 #####################################
 resource "aws_codepipeline" "application" {
-  name     = "mycode-rip-app"
+  name     = "blog-neo-app"
   role_arn = "${aws_iam_role.codepipeline.arn}"
 
   artifact_store {
@@ -55,8 +55,8 @@ resource "aws_codepipeline" "application" {
       output_artifacts = ["app-source"]
 
       configuration {
-        Owner                = "hareku"
-        Repo                 = "mycode.rip"
+        Owner                = "neo0222"
+        Repo                 = "blog-neo"
         Branch               = "master"
         PollForSourceChanges = "true"
       }
@@ -75,7 +75,7 @@ resource "aws_codepipeline" "application" {
       input_artifacts = ["app-source"]
 
       configuration {
-        ProjectName = "mycode-rip-app"
+        ProjectName = "blog-neo-app"
       }
     }
   }

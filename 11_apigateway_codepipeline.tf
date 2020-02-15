@@ -2,7 +2,7 @@
 # API Gateway Settings
 #####################################
 resource "aws_api_gateway_rest_api" "codepipeline_execution" {
-  name = "CodePipelineExecutionAPI-For-mycode.rip"
+  name = "CodePipelineExecutionAPI-For-blog-neo"
 }
 
 resource "aws_api_gateway_resource" "codepipeline_execution" {
@@ -49,15 +49,15 @@ resource "aws_api_gateway_deployment" "codepipeline_execution" {
   ]
 
   rest_api_id = "${aws_api_gateway_rest_api.codepipeline_execution.id}"
-  stage_name  = "codepipeline-execution-for-mycode-rip"
+  stage_name  = "codepipeline-execution-for-blog-neo"
 }
 
 resource "aws_api_gateway_api_key" "codepipeline_execution" {
-  name = "contentful-webhook-for-mycode.rip"
+  name = "contentful-webhook-for-blog-neo"
 }
 
 resource "aws_api_gateway_usage_plan" "codepipeline_execution" {
-  name = "contentful-webhook-for-mycode.rip"
+  name = "contentful-webhook-for-blog-neo"
 
   api_stages {
     api_id = "${aws_api_gateway_rest_api.codepipeline_execution.id}"

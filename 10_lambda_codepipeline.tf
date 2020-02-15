@@ -13,7 +13,7 @@ resource "aws_lambda_function" "codepipeline_execution" {
   source_code_hash = "${data.archive_file.codepipeline_execution.output_base64sha256}"
   role             = "${aws_iam_role.lambda_codepipeline_execution.arn}"
   handler          = "index.handler"
-  runtime          = "nodejs8.10"
+  runtime          = "nodejs10.x"
   timeout          = 5
   publish          = true
 }

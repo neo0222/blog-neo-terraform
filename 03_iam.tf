@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "codepipeline_assume_role" {
 }
 
 resource "aws_iam_role" "codepipeline" {
-  name               = "AWSCodePipelineRole-For-mycode.rip"
+  name               = "AWSCodePipelineRole-For-blog-neo"
   assume_role_policy = "${data.aws_iam_policy_document.codepipeline_assume_role.json}"
 }
 
@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "codepipeline" {
 }
 
 resource "aws_iam_policy" "codepipeline" {
-  name   = "CodePipelinePolicy-For-mycode.rip"
+  name   = "CodePipelinePolicy-For-blog-neo"
   path   = "/"
   policy = "${data.aws_iam_policy_document.codepipeline.json}"
 }
@@ -54,7 +54,7 @@ data "aws_iam_policy_document" "codebuild_assume_role" {
 }
 
 resource "aws_iam_role" "codebuild" {
-  name               = "AWSCodeBuildRole-For-mycode.rip"
+  name               = "AWSCodeBuildRole-For-blog-neo"
   assume_role_policy = "${data.aws_iam_policy_document.codebuild_assume_role.json}"
 }
 
@@ -72,7 +72,7 @@ data "aws_iam_policy_document" "codebuild" {
 }
 
 resource "aws_iam_policy" "codebuild" {
-  name   = "CodeBuildPolicy-For-mycode.rip"
+  name   = "CodeBuildPolicy-For-blog-neo"
   path   = "/"
   policy = "${data.aws_iam_policy_document.codebuild.json}"
 }
@@ -95,7 +95,7 @@ data "aws_iam_policy_document" "lambda_edge_assume_role" {
 }
 
 resource "aws_iam_role" "lambda_edge" {
-  name               = "AWSLambdaEdgeRole-For-mycode.rip"
+  name               = "AWSLambdaEdgeRole-For-blog-neo"
   assume_role_policy = "${data.aws_iam_policy_document.lambda_edge_assume_role.json}"
 }
 
@@ -117,7 +117,7 @@ data "aws_iam_policy_document" "api_gateway_assume_role" {
 }
 
 resource "aws_iam_role" "api_gateway" {
-  name               = "AWSAPIGatewayRole-For-mycode.rip"
+  name               = "AWSAPIGatewayRole-For-blog-neo"
   assume_role_policy = "${data.aws_iam_policy_document.api_gateway_assume_role.json}"
 }
 
@@ -139,7 +139,7 @@ data "aws_iam_policy_document" "lambda_assume_role" {
 }
 
 resource "aws_iam_role" "lambda_codepipeline_execution" {
-  name               = "AWSLambdaCodePipelineExecutionRole-For-mycode.rip"
+  name               = "AWSLambdaCodePipelineExecutionRole-For-blog-neo"
   assume_role_policy = "${data.aws_iam_policy_document.lambda_assume_role.json}"
 }
 
@@ -157,7 +157,7 @@ data "aws_iam_policy_document" "lambda_codepipeline_execution" {
 }
 
 resource "aws_iam_policy" "lambda_codepipeline_execution" {
-  name   = "LambdaCodePipelineExecutionPolicy-For-mycode.rip"
+  name   = "LambdaCodePipelineExecutionPolicy-For-blog-neo"
   path   = "/"
   policy = "${data.aws_iam_policy_document.lambda_codepipeline_execution.json}"
 }
