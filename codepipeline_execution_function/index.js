@@ -5,7 +5,7 @@ exports.handler = (event, context, callback) => {
   const codepipeline = new AWS.CodePipeline()
 
   const params = {
-    name: 'mycode-rip-app'
+    name: 'blog-neo-app'
   }
 
   codepipeline.startPipelineExecution(params , (error, data) => {
